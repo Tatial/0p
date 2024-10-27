@@ -1,0 +1,157 @@
+// Person class
+class Person {
+    private String name;
+    private int age;
+    private String email;
+    private String phone;
+    private Book favoriteBook;
+
+    // Constructor
+    public Person(String name, int age, String email, String phone) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    // Getter and Setter methods for name, age, email, and phone
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    // Getter and Setter methods for favoriteBook
+    public Book getFavoriteBook() {
+        return favoriteBook;
+    }
+
+    public void setFavoriteBook(Book favoriteBook) {
+        this.favoriteBook = favoriteBook;
+    }
+
+    // toDisplay method
+    public void toDisplay() {
+        System.out.println("Person [Name: " + name + ", Age: " + age + ", Email: " + email + ", Phone: " + phone + "]");
+    }
+}
+
+// Book class
+class Book {
+    private String name;
+    private String author;
+    private String publisher;
+
+    // Constructor
+    public Book(String name, String author, String publisher) {
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+    }
+
+    // Getter and Setter methods for name, author, and publisher
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    // rent method
+    public void rent(Person person) {
+        System.out.println(person.getName() + " is renting the book '" + name + "'");
+    }
+
+    // toDisplay method
+    public void toDisplay() {
+        System.out.println("Book [Name: " + name + ", Author: " + author + ", Publisher: " + publisher + "]");
+    }
+}
+
+// Main class for interaction
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Input Person details
+        System.out.print("Enter your name: ");
+        String personName = scanner.nextLine();
+        System.out.print("Enter your age: ");
+        int personAge = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+        System.out.print("Enter your email: ");
+        String personEmail = scanner.nextLine();
+        System.out.print("Enter your phone: ");
+        String personPhone = scanner.nextLine();
+
+        // Create Person object
+        Person person = new Person(personName, personAge, personEmail, personPhone);
+
+        // Input Book details
+        System.out.print("Enter book name: ");
+        String bookName = scanner.nextLine();
+        System.out.print("Enter book author: ");
+        String bookAuthor = scanner.nextLine();
+        System.out.print("Enter book publisher: ");
+        String bookPublisher = scanner.nextLine();
+
+        // Create Book object
+        Book book = new Book(bookName, bookAuthor, bookPublisher);
+
+        // Display Person and Book information
+        person.toDisplay();
+        book.toDisplay();
+
+        // Rent the book
+        book.rent(person);
+
+        // Set favorite book for the person
+        person.setFavoriteBook(book);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
